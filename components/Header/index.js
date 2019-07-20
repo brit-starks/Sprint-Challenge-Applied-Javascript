@@ -13,4 +13,15 @@ function Header() {
   const headContainer = document.querySelector('header-container');
 
   const headDiv = document.createElement('div');
+  headDiv.classList.add('header-div');
+
+  const date = document.createElement('span');
+  date.classList.add('date');
+
+  const title = document.createElement('h1');
+  title.classList.add('header-title');
+
+  const temp = document.createElement('span');
+  temp.classList.add('header-temp');
+  
 }
