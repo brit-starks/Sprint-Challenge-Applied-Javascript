@@ -13,10 +13,18 @@ axios.get(' https://lambda-times-backend.herokuapp.com/topics')
   .then(data => {
     const topic = data;
     console.log(topic);
+    return data;
   })
   .catch(err => 
     console.log( err, 'You messed up...')
   );
+
+class Tab {
+  constructor(topic) {
+    this.topic = topic.querySelector('.tab');
+    this.topic.textContext = topic;
+  }
+}
 
   const tabs = () => {
     const topic = document.querySelector('.topics');
@@ -24,15 +32,17 @@ axios.get(' https://lambda-times-backend.herokuapp.com/topics')
     const newTabs = document.createElement('div');
 
     const tabTopic = document.createElement('div');
+    tabTopic.classList.add('tab');
     newTabs.appendChild(tabTopic);
 
     topic.appendChild(newTabs);
+    return newTabs;
   }
   
   // console.log(tabs);
 
   topic.map((topic) => {
-    const newTabTopic = new tabs(
+    const newTabTopic = new Tabs(
       tabs(),
       topic.topics
     );
