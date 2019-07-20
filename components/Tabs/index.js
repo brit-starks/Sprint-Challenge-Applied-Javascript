@@ -9,43 +9,45 @@
 //    <div class="tab">topic here</div>
 
 
-axios.get(' https://lambda-times-backend.herokuapp.com/topics')
-  
-  .then((data) => {
-    const topic = data;
-    console.log(data);
-    return topic;
-  })
-  .catch(err => {
-    console.log( err, 'You messed up...')
-  });
 
-class Tabs {
+  axios.get(' https://lambda-times-backend.herokuapp.com/topics')
+    
+    .then(data => {
+      const topic = data;
+      console.log('promise: ', data);
+      return topic;
+    })
+    .catch(err => {
+      console.log( err, 'You messed up...')
+    });
+
+let topic = [];
+
+class Tab {
   constructor(topic) {
     this.topic = topic.querySelector('.tab');
     this.topic.textContext = topic;
+    console.log('Tab: ', this.topic);
   }
 }
 
   const tabs = () => {
     const topic = document.querySelector('.topics');
 
-    const newTabs = document.createElement('div');
+    // const newTabs = document.createElement('div');
 
     const tabTopic = document.createElement('div');
     tabTopic.classList.add('tab');
-    newTabs.appendChild(tabTopic);
+    topic.appendChild(tabTopic);
 
     topic.appendChild(newTabs);
     return newTabs;
-  }
-  
-  // console.log(tabs);
+  };
 
   topic.map((topic) => {
-    const newTabTopic = new Tabs(
+    const newTabTopic = new Tab(
       tabs(),
-      topic.topics
+      topic.topic
     );
     console.log(newTabTopic);
   })
