@@ -10,16 +10,17 @@
 
 
 axios.get(' https://lambda-times-backend.herokuapp.com/topics')
-  .then(data => {
+  
+  .then((data) => {
     const topic = data;
-    console.log(topic);
-    return data;
+    console.log(data);
+    return topic;
   })
-  .catch(err => 
+  .catch(err => {
     console.log( err, 'You messed up...')
-  );
+  });
 
-class Tab {
+class Tabs {
   constructor(topic) {
     this.topic = topic.querySelector('.tab');
     this.topic.textContext = topic;
